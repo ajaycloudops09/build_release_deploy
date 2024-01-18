@@ -21,6 +21,9 @@ increment_version() {
  
     echo "$major.$minor.$patch"
 }
+result=$(increment_version "1.10.10")
+echo "increment_version: $result"
+
  
 # Function to build and release microservice
 
@@ -55,3 +58,8 @@ deploy_microservice_with_version() {
     version=$2
     echo "Deploying $microservice_name with version $version"
 }
+
+build_and_release_microservice "microservice1" "1.0.0"
+deploy_individual_microservice "microservice2"
+deploy_all_microservices
+deploy_microservice_with_version "microservice3" "2.1.0"
